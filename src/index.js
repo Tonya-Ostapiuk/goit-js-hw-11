@@ -1,14 +1,14 @@
 import { fetchImages } from './fetchImages';
 import { markupImageList, gallery} from './markupImageList';
 import Notiflix from 'notiflix';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
-const inputSerch = document.querySelector('.search-form-input');
+const inputSearch = document.querySelector('.search-form-input');
 const btnSearch = document.querySelector('.search-form-button');
 const btnLoadMore = document.querySelector('.load-more');
 
-let gallerySimpleLightbox = new SimpleLightbox('.gallery');
+let gallerySimpleLightbox = new SimpleLightbox('.gallery a');
 let pageNumber = 1;
 btnLoadMore.style.display = 'none';
 
@@ -16,7 +16,7 @@ btnLoadMore.style.display = 'none';
 btnSearch.addEventListener('click', async (e) => {
   e.preventDefault();
   initialValue();
-  const inputValue = inputSerch.value.trim();
+  const inputValue = inputSearch.value.trim();
 
   if (inputValue !== '') {
     
@@ -38,10 +38,9 @@ btnSearch.addEventListener('click', async (e) => {
 });
 
 
-
 btnLoadMore.addEventListener('click', async() => {
   pageNumber++;
-  const inputValue = inputSerch.value.trim();
+  const inputValue = inputSearch.value.trim();
   btnLoadMore.style.display = 'none';
   const foundData = await fetchImages(inputValue, pageNumber);
  
@@ -59,9 +58,9 @@ btnLoadMore.addEventListener('click', async() => {
 });
 
 
-
 function initialValue() {
   gallery.innerHTML = '';
   pageNumber = 1;
   btnLoadMore.style.display = 'none';
 };
+

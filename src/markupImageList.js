@@ -22,5 +22,5 @@ export function markupImageList(images) {
       </div>`;
       })
       .join('');
-    gallery.innerHTML = markup;
+    gallery.innerHTML += markup;
   }

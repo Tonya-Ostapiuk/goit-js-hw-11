@@ -7,4 +7,5 @@ export const fetchImages = async (inputValue, pageNr) => {
   return response.data;   
 
 };
+
    
